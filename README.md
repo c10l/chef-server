@@ -1,4 +1,5 @@
-=== chef-server ===
+chef-server
+===========
 
 This repo is for my personal use, but feel free to use it if you'd like.
 
