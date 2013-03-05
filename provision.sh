@@ -27,9 +27,9 @@ if package_not_installed chef-server; then
 
   dpkg -i $package
   chef-server-ctl reconfigure
+  chef-server-ctl test
 else
   echo "Chef Server already installed."
 fi
 
-chef-server-ctl test
 echo "Done! Chef web UI and API endpoint available at https://localhost"
