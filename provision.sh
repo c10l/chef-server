@@ -32,4 +32,4 @@ else
   echo "Chef Server already installed."
 fi
 
-echo "Done! Chef web UI and API endpoint available at https://localhost"
+echo "Done! Chef web UI and API endpoint available at https://chef-server.vm"
