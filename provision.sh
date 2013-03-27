@@ -7,7 +7,7 @@ package='chef-server_11.0.6-1.ubuntu.12.04_amd64.deb'
 package_md5='f26932ce97e6bb49fcc223a2dae8b205'
 
 package_not_installed () {
-  [ ! `dpkg -s $1 > /dev/null; echo $?` -eq 0 ]
+  [ ! `dpkg -s $1 &> /dev/null; echo $?` -eq 0 ]
 }
 
 install_curl () {
