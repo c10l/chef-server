@@ -17,9 +17,21 @@ install_curl () {
   fi
 }
 
+create_swap_file () {
+  if [ ! -f /swapfile1 ]; then
+    echo "Creating swap file. This could take a while..."
+    dd if=/dev/zero of=/swapfile1 bs=1024 count=524288
+    mkswap /swapfile1
+    chmod 0600 /swapfile1
+    swapon /swapfile1
+    echo "/swapfile1 swap swap defaults 0 0" >> /etc/fstab
+  fi
+}
+
 cd /vagrant
 
 if package_not_installed chef-server; then
+  create_swap_file
   if [ ! -f "$package" ] || [ ! "`md5sum $package | cut -d' ' -f1`" = "$package_md5" ]; then
     install_curl
     curl -sO "https://opscode-omnitruck-release.s3.amazonaws.com/ubuntu/12.04/x86_64/$package"
